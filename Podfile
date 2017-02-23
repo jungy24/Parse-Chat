@@ -7,7 +7,7 @@ target 'Parse Chat' do
   use_frameworks!
 
 pod ‘AFNetworking’, ‘~> 2.6’
-Pod ‘Parse’
+pod ‘Parse’
   # Pods for Parse Chat
 
 end
