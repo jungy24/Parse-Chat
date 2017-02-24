@@ -11,6 +11,7 @@ import Parse
 
 class chatViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet var arthurMesg: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +22,16 @@ class chatViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        tableView.dataSource = self
+        tableView.estimatedRowHeight = 20
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
     }
     
     @IBAction func sendMesg(_ sender: Any)
     {
+        /*
         var msg = PFObject(className:"Message")
         var buffer = ""
         if let buffer = arthurMesg.text
@@ -41,8 +48,20 @@ class chatViewController: UIViewController {
                 print(msg["text"])
             }
         }
+ */
     }
-
+    
+    func onTimer() {
+        // Add code to be run periodically
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(chatViewController.onTimer), userInfo: nil, repeats: true)
+        
+        var query = PFQuery(className:"Message")
+        query.whereKey("playerName", equalTo:"Sean Plott")
+        query.findObjectsInBackground { (, <#Error?#>) in
+            <#code#>
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
