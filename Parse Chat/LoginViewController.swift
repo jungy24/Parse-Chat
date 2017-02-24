@@ -33,8 +33,9 @@ class LoginViewController: UIViewController {
         // other fields can be set just like with PFObject
         
         user.signUpInBackground { (result, error) in
-            if (user.username == "" && user.password == ""){
-                error
+            if (self.emailTextField.text! == "" && self.passwordTextField.text! == "")
+            {
+                print(error?.localizedDescription)
                 let alertController = UIAlertController(title: "Error!", message: "Please add Email/password!", preferredStyle: .alert)
                 // create a cancel action
                 let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
