@@ -33,8 +33,46 @@ class LoginViewController: UIViewController {
         // other fields can be set just like with PFObject
         
         user.signUpInBackground { (result, error) in
-            if let error = error {
+            if (user.username == "" && user.password == ""){
+                error
+                let alertController = UIAlertController(title: "Error!", message: "Please add Email/password!", preferredStyle: .alert)
+                // create a cancel action
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                    // handle cancel response here. Doing nothing will dismiss the view.
+                }
+                // add the cancel action to the alertController
+                alertController.addAction(cancelAction)
+                
+                // create an OK action
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    // handle response here.
+                }
+                // add the OK action to the alert controller
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true) {
+                    // optional code for what happens after the alert controller has finished presenting
+                }
+
+            }
+            else if let error = error {
                 print(error.localizedDescription)
+                let alertController = UIAlertController(title: "Error!", message: "Please add Email/password!", preferredStyle: .alert)
+                // create a cancel action
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                    // handle cancel response here. Doing nothing will dismiss the view.
+                }
+                // add the cancel action to the alertController
+                alertController.addAction(cancelAction)
+                
+                // create an OK action
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    // handle response here.
+                }
+                // add the OK action to the alert controller
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true) {
+                    // optional code for what happens after the alert controller has finished presenting
+                }
             } else {
                 print("We signed up yay!")
                 // TODO Go to next screen
@@ -47,6 +85,24 @@ class LoginViewController: UIViewController {
         PFUser.logInWithUsername(inBackground: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if let error = error {
                 print("login error")
+                let alertController = UIAlertController(title: "Error!", message: "Please add Email/password!", preferredStyle: .alert)
+                // create a cancel action
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                    // handle cancel response here. Doing nothing will dismiss the view.
+                }
+                // add the cancel action to the alertController
+                alertController.addAction(cancelAction)
+                
+                // create an OK action
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    // handle response here.
+                }
+                // add the OK action to the alert controller
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true) {
+                    // optional code for what happens after the alert controller has finished presenting
+                }
+                
             } else {
                 // TODO Go to next screen
             }
