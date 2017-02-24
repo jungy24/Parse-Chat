@@ -76,6 +76,7 @@ class LoginViewController: UIViewController {
                 }
             } else {
                 print("We signed up yay!")
+                self.performSegue(withIdentifier: "firstView", sender: nil)
                 // TODO Go to next screen
                 
             }
@@ -106,6 +107,7 @@ class LoginViewController: UIViewController {
                 
             } else {
                 // TODO Go to next screen
+                self.performSegue(withIdentifier: "firstView", sender: nil)
             }
         }
     }

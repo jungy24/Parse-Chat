@@ -71,16 +71,17 @@
                     <connections>
                         <outlet property="emailTextField" destination="8g6-xR-kAv" id="Y44-zU-qCT"/>
                         <outlet property="passwordTextField" destination="xjE-3h-PV3" id="RY0-2e-ALh"/>
+                        <segue destination="DfK-H5-b9t" kind="presentation" identifier="firstView" id="UlQ-BZ-oUV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat-->
         <scene sceneID="9cf-9j-3QT">
             <objects>
-                <viewController id="naf-no-Xg4" sceneMemberID="viewController">
+                <viewController id="naf-no-Xg4" customClass="chatViewController" customModule="Parse_Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4PV-KT-sg3"/>
                         <viewControllerLayoutGuide type="bottom" id="i0x-D1-TsX"/>
@@ -88,9 +89,29 @@
                     <view key="view" contentMode="scaleToFill" id="NkQ-Uv-O9T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QV9-Wa-hGz">
+                                <rect key="frame" x="16" y="617" width="267" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JxB-4I-fEq">
+                                <rect key="frame" x="302" y="608" width="57" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Arthur"/>
+                                <connections>
+                                    <action selector="sendMesg:" destination="naf-no-Xg4" eventType="touchUpInside" id="f2U-Ef-wov"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5uy-z0-XDn"/>
+                    <navigationItem key="navigationItem" title="Chat" id="5uy-z0-XDn"/>
+                    <connections>
+                        <outlet property="arthurMesg" destination="QV9-Wa-hGz" id="GyF-oT-2fx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZu-V6-PEX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
