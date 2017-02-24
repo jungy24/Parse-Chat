@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		506CBCA41E5FA26D0085E065 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506CBCA31E5FA26D0085E065 /* AppDelegate.swift */; };
-		506CBCA61E5FA26D0085E065 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506CBCA51E5FA26D0085E065 /* ViewController.swift */; };
 		506CBCA91E5FA26D0085E065 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 506CBCA71E5FA26D0085E065 /* Main.storyboard */; };
 		506CBCAB1E5FA26D0085E065 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 506CBCAA1E5FA26D0085E065 /* Assets.xcassets */; };
 		506CBCAE1E5FA26D0085E065 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 506CBCAC1E5FA26D0085E065 /* LaunchScreen.storyboard */; };
+		506CBCB61E5FA8B20085E065 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506CBCB51E5FA8B20085E065 /* LoginViewController.swift */; };
 		9B4F68F8087A31B79D6C49AF /* Pods_Parse_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E76789F9FBA47EC382DB2FB /* Pods_Parse_Chat.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,11 +20,11 @@
 		4179B1DC427E9C4DE1303974 /* Pods-Parse Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parse Chat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Parse Chat/Pods-Parse Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		506CBCA01E5FA26D0085E065 /* Parse Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Parse Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		506CBCA31E5FA26D0085E065 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		506CBCA51E5FA26D0085E065 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		506CBCA81E5FA26D0085E065 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		506CBCAA1E5FA26D0085E065 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		506CBCAD1E5FA26D0085E065 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		506CBCAF1E5FA26D0085E065 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		506CBCB51E5FA8B20085E065 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7E76789F9FBA47EC382DB2FB /* Pods_Parse_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parse_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -79,11 +79,11 @@
 			isa = PBXGroup;
 			children = (
 				506CBCA31E5FA26D0085E065 /* AppDelegate.swift */,
-				506CBCA51E5FA26D0085E065 /* ViewController.swift */,
 				506CBCA71E5FA26D0085E065 /* Main.storyboard */,
 				506CBCAA1E5FA26D0085E065 /* Assets.xcassets */,
 				506CBCAC1E5FA26D0085E065 /* LaunchScreen.storyboard */,
 				506CBCAF1E5FA26D0085E065 /* Info.plist */,
+				506CBCB51E5FA8B20085E065 /* LoginViewController.swift */,
 			);
 			path = "Parse Chat";
 			sourceTree = "<group>";
@@ -211,7 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				506CBCA61E5FA26D0085E065 /* ViewController.swift in Sources */,
+				506CBCB61E5FA8B20085E065 /* LoginViewController.swift in Sources */,
 				506CBCA41E5FA26D0085E065 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +374,7 @@
 				506CBCB41E5FA26D0085E065 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
