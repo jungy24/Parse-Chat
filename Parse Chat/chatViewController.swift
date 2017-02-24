@@ -9,12 +9,26 @@
 import UIKit
 import Parse
 
-class chatViewController: UIViewController {
+class chatViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var arthurMesg: UITextField!
+    var messages: [PFObject] = []
+    var msg = PFObject(className:"Message")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+            tableView.dataSource = self
+        tableView.delegate = self
+        tableView.estimatedRowHeight = 20
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(chatViewController.loadMessages), userInfo: nil, repeats: true)
+        
+
+        
+        self.tableView.reloadData()
+        
 
         // Do any additional setup after loading the view.
     }
@@ -23,21 +37,18 @@ class chatViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
-        tableView.dataSource = self
-        tableView.estimatedRowHeight = 20
-        tableView.rowHeight = UITableViewAutomaticDimension
-        
-    }
+           }
     
     @IBAction func sendMesg(_ sender: Any)
     {
-        /*
-        var msg = PFObject(className:"Message")
+        
+        
         var buffer = ""
         if let buffer = arthurMesg.text
         {
             msg["text"] = arthurMesg.text
         }
+        
         msg.saveInBackground { (result, error) in
             if let error = error
             {
@@ -45,21 +56,52 @@ class chatViewController: UIViewController {
             }
             else
             {
-                print(msg["text"])
+              
+                print(self.msg["text"])
+                print(self.messages)
+                      self.tableView.reloadData()
+                
             }
         }
- */
+ 
     }
-    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+            return messages.count;
+    }
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! chatCell;
+        
+                   let chat = messages[indexPath.row];
+       
+        
+            let message = chat["message"] as! String;
+            let userName = chat["username"] as! String;
+        
+        
+        
+        cell.label.text = userName + ": " + message;
+     
+        return cell;
+    }
+
     func onTimer() {
         // Add code to be run periodically
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(chatViewController.onTimer), userInfo: nil, repeats: true)
-        
-        var query = PFQuery(className:"Message")
-        query.whereKey("playerName", equalTo:"Sean Plott")
-        query.findObjectsInBackground { (, <#Error?#>) in
-            <#code#>
+                let query = PFQuery(className: "Message")
+        query.order(byDescending: "createdAt")
+        query.limit = 20
+        query.findObjectsInBackground { (object, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let messages = object {
+                self.messages = messages.reversed()
+                print(messages)
+                self.tableView.reloadData()
+                
+            }
         }
+        print("keep getting")
     }
     
     /*
